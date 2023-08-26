@@ -47,14 +47,19 @@ const copyHandler= ()=>{
     alert("The code has been successfully copied👍🏽");
     
 }
+const btnStyle={
+    background:"#9b59b6",
+    color:"#fff",
+    border:"2px solid #ecf0f1",
+    outline:"none",
+    borderRadius:"5px",
+    textTransform:"uppercase",
+    cursor:"pointer",
+    padding:"15px 20px"
 
-let time=new Date();
 
-
+}
 const App = () => {
-
-
-
  return (
     <>
         <h1>Solution of POTD  </h1>
@@ -67,13 +72,13 @@ const App = () => {
         </div>
         <br />
         <p>{`ans ->`}</p>
-        <button onClick={copyHandler}> click to copy </button>
+        <button style={btnStyle} onClick={copyHandler}> click to copy </button>
         <br />
 
         <div style={{display:'flex'}}>
         <textarea className='textareaStyle' type="textarea" style={{fontSize: "12pt",width:"90%",height:"60vh",background:"#d3d3d3"}} defaultValue={answer} readOnly>
         </textarea>
-</div>
+        </div>
         
         
     </>
