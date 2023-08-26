@@ -56,8 +56,6 @@ const btnStyle={
     textTransform:"uppercase",
     cursor:"pointer",
     padding:"15px 20px"
-
-
 }
 const App = () => {
  return (
@@ -72,10 +70,15 @@ const App = () => {
         </div>
         <br />
         <p>{`ans ->`}</p>
-        <button style={btnStyle} onClick={copyHandler}> click to copy </button>
         <br />
 
-        <div style={{display:'flex'}}>
+        <div style={{display:"flex",justifyContent:"center",gap:50}}>
+            <button style={btnStyle} onClick={copyHandler}> click to copy </button>
+            <a href="https://practice.geeksforgeeks.org/problem-of-the-day"><button style={btnStyle} marginRight="50px" >POTD direct Link</button></a>
+        </div>
+        <br />
+        <div style={{display:'flex',justifyContent:"center"}}>
+        
         <textarea className='textareaStyle' type="textarea" style={{fontSize: "12pt",width:"90%",height:"60vh",background:"#d3d3d3"}} defaultValue={answer} readOnly>
         </textarea>
         </div>
