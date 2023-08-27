@@ -18,12 +18,11 @@ public static String reverseWord(String str)
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("successfully copied");
+        alert("The code has been copied successfully 👍🏽");
       })
       .catch(() => {
-        alert("something went wrong");
+        alert("something went wrong please copy manually😔");
       });
-    // alert("The code has been copied successfully👍🏽");
     
 }
 const btnStyle={
