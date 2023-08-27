@@ -17,8 +17,13 @@ public static String reverseWord(String str)
 }
 `
 const copyHandler= ()=>{
-    navigator.clipboard.writeText(answer);
-    alert("The code has been copied successfully👍🏽");
+    navigator.clipboard.writeText(answer).then(() => {
+        alert("successfully copied");
+      })
+      .catch(() => {
+        alert("something went wrong");
+      });
+    // alert("The code has been copied successfully👍🏽");
     
 }
 const btnStyle={
