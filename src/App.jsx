@@ -2,18 +2,30 @@ import React from 'react'
 
 const answer=
 `
-    return new StringBuilder(str).reverse().toString();
+    if(head == null || head.next == null)
+	return head;
+	Node curr = head;
+	while(curr != null && curr.next != null){
+	    if(curr.next.data == curr.data)
+	    curr.next = curr.next.next;
+	    else
+	    curr = curr.next;
+	}
+	return head;
 
 `
 const stepp=`
 step 1: change language to java
 
 step 2:
-public static String reverseWord(String str)
+class GfG
 {
-    // Reverse the string str
-    //yaha par paste kar do
-    
+    //Function to remove duplicates from sorted linked list.
+    Node removeDuplicates(Node head)
+    {
+	// Your code here
+    //apna code yaha par paste kar do	
+    }
 }
 `
 const copyHandler= ()=>{
@@ -39,8 +51,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:27-aug-2023</h3>
-        <p>at 6:40 am</p>
+        <h3>DATE:28-aug-2023</h3>
+        <p>at 6:22 am</p>
         <div>
             <pre>
                 {stepp}
