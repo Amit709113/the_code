@@ -2,31 +2,33 @@ import React from 'react'
 
 const answer=
 `
-    if(head == null || head.next == null)
-	return head;
-	Node curr = head;
-	while(curr != null && curr.next != null){
-	    if(curr.next.data == curr.data)
-	    curr.next = curr.next.next;
-	    else
-	    curr = curr.next;
-	}
-	return head;
+    Node curr=head;
+    while(curr.next!=null)
+    {
+        if(curr.next.data>curr.data)
+        {
+            curr.data=curr.next.data;
+            curr.next=curr.next.next;
+            curr=head;
+        }
+        else
+        curr=curr.next;
+    }
+    return head;
 
 `
 const stepp=`
 step 1: change language to java
 
 step 2:
-class GfG
-{
-    //Function to remove duplicates from sorted linked list.
-    Node removeDuplicates(Node head)
+    class Solution
     {
-	// Your code here
-    //apna code yaha par paste kar do	
+        Node compute(Node head)
+        {
+            // your code here
+            //paste here
+        }
     }
-}
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
@@ -51,8 +53,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:28-aug-2023</h3>
-        <p>at 6:22 am</p>
+        <h3>DATE:29-aug-2023</h3>
+        <p>at 6:35 am</p>
         <div>
             <pre>
                 {stepp}
