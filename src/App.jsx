@@ -2,18 +2,11 @@ import React from 'react'
 
 const answer=
 `
-    Node curr=head;
-    while(curr.next!=null)
-    {
-        if(curr.next.data>curr.data)
-        {
-            curr.data=curr.next.data;
-            curr.next=curr.next.next;
-            curr=head;
-        }
-        else
-        curr=curr.next;
-    }
+    Node temp=head;
+    if(x==1)  return head.next;
+    while(x-- >2)
+        temp=temp.next;
+    temp.next=temp.next.next;
     return head;
 
 `
@@ -21,14 +14,15 @@ const stepp=`
 step 1: change language to java
 
 step 2:
-    class Solution
+/*You are required to complete below method*/
+class GfG
+{
+    Node deleteNode(Node head, int x)
     {
-        Node compute(Node head)
-        {
-            // your code here
-            //paste here
-        }
+	// Your code here
+    //paste here	
     }
+}
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
@@ -53,8 +47,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:29-aug-2023</h3>
-        <p>at 6:35 am</p>
+        <h3>DATE:30-aug-2023</h3>
+        <p>at 5:35 am</p>
         <div>
             <pre>
                 {stepp}
