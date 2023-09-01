@@ -1,6 +1,4 @@
 import React from 'react'
-const bold=<b> JAVA </b>;
-const underline="<i> itelic </i> ";
 
 const answer=
 `
@@ -61,7 +59,7 @@ const App = () => {
     <>
         <h1>Solution of POTD  </h1>
         <h3>DATE:01-sep-2023</h3>
-        <p>at 9:23 am</p>
+        <p>at 9:35 am</p>
         
         <div>
             <pre>
