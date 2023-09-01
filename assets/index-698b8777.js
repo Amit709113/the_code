@@ -47,6 +47,7 @@ if(node==null)return;
             for(int i=0;i<x;i++){
                 Node z=q.poll();
                 if(i==0||i==x-1)
+                    System.out.print(z.data+" ");
                 if(z.left!=null)q.add(z.left);
                 if(z.right!=null)q.add(z.right);
             }
