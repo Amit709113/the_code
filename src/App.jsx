@@ -3,35 +3,33 @@ import React from 'react'
 const answer=
 `
 
-if(node==null)return;
-        Queue<Node> q=new LinkedList<>();
-        q.add(node);
-        while(!q.isEmpty()){
-            int x=q.size();
-            for(int i=0;i<x;i++){
-                Node z=q.poll();
-                if(i==0||i==x-1)
-                    System.out.print(z.data+" ");
-                if(z.left!=null)q.add(z.left);
-                if(z.right!=null)q.add(z.right);
-            }
+ArrayList<Integer> res=new ArrayList<>();
+        postOrder(node,res,1);
+        Collections.sort(res);
+        int count=0;
+        for(int i=0;i<res.size();i++){
+            bud-=res.get(i);
+            if(bud<0)break;
+            else count++;
         }
-        return;
+        return count;
+    }
+    public void postOrder(Node node,ArrayList<Integer> res,int level){
+        if(node.left!=null) postOrder(node.left,res,level+1);
+        if(node.right!=null) postOrder(node.right,res,level+1);
+        if(node.left==null && node.right==null) res.add(level);
 
 `
 const stepp=`
 
 STEP 1: change language to java
 STEP 2: paste at marked position
-class Tree
-{
-    public static void printCorner(Node node)
+class Solution{
+    public int getCount(Node node, int bud)
     {
-        
-        // add your code here    
+        //code here  
         //paste here
     }
-    
 }
 
 `
@@ -58,8 +56,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:01-sep-2023</h3>
-        <p>at 9:35 am</p>
+        <h3>DATE:02-sep-2023</h3>
+        <p>at 9:40 am</p>
         
         <div>
             <pre>
