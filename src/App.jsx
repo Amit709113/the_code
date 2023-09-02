@@ -3,34 +3,40 @@ import React from 'react'
 const answer=
 `
 
-ArrayList<Integer> res=new ArrayList<>();
-        postOrder(node,res,1);
-        Collections.sort(res);
-        int count=0;
-        for(int i=0;i<res.size();i++){
-            bud-=res.get(i);
-            if(bud<0)break;
-            else count++;
+   if(root1 == null && root2 == null)
+        {
+            return true;
         }
-        return count;
-    }
-    public void postOrder(Node node,ArrayList<Integer> res,int level){
-        if(node.left!=null) postOrder(node.left,res,level+1);
-        if(node.right!=null) postOrder(node.right,res,level+1);
-        if(node.left==null && node.right==null) res.add(level);
+
+        if(root1 == null && root2!= null)
+        return false;
+
+        if(root2 == null && root1 != null)
+        return false;
+
+        if(root1.data != root2.data)
+        {
+            return false;
+        }
+
+        return (isIsomorphic(root1.left, root2.left) && isIsomorphic(root1.right, root2.right) || 
+        isIsomorphic(root1.left, root2.right) && isIsomorphic(root1.right, root2.left));
 
 `
 const stepp=`
 
 STEP 1: change language to java
 STEP 2: paste at marked position
-class Solution{
-    public int getCount(Node node, int bud)
-    {
-        //code here  
-        //paste here
+class Solution  
+{ 
+    // Return True if the given trees are isomotphic. Else return False.
+    boolean isIsomorphic(Node root1, Node root2)  
+    { 
+         // code here.
+         //paste here
     }
-}
+    
+}    
 
 `
 const copyHandler= ()=>{
@@ -56,8 +62,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:02-sep-2023</h3>
-        <p>at 9:40 am</p>
+        <h3>DATE:03-sep-2023</h3>
+        <p>at 00:50 am</p>
         
         <div>
             <pre>
