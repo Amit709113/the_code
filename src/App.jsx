@@ -3,36 +3,27 @@ import React from 'react'
 const answer=
 `
 
-        for(int i=0;i<n;i++)
-            for(int j=0;j<m;j++)
-                if((i==0 ||i==n-1 || j==0||j==m-1)&& a[i][j]=='O')  dfs(a,i,j);
-        for(int i=0;i<n;i++)
-            for(int j=0;j<m;j++)
-                a[i][j]=a[i][j]!='k'?'X':'O';          
-        return a;
-    }
-    static void dfs(char mat[][],int i,int j)
-    {
-        if(i<0 || j<0 || i>=mat.length || j>=mat[0].length || mat[i][j]!='O')
-            return;
-        mat[i][j]='k';
-        dfs(mat,i+1,j);
-        dfs(mat,i-1,j);
-        dfs(mat,i,j+1);
-        dfs(mat,i,j-1);
+List<List<Integer>>al=new ArrayList<>();
+for(int i=0;i<V;i++){
+    al.add(new ArrayList<>());
+}
+for(int i=0;i<edges.length;i++){
+    al.get(edges[i][0]).add(edges[i][1]);
+    al.get(edges[i][1]).add(edges[i][0]);
+}
+return al;
     
 `
 const stepp=`
 
 STEP 1: change language to java
 STEP 2: paste at marked position
-class Solution{
-    static char[][] fill(int n, int m, char a[][])
-    {
-        // code here
-        //paste here
-    } 
-}   
+class Solution {
+    public List<List<Integer>> printGraph(int V, int edges[][]) {
+        //paste here 
+         
+    }
+}
 
 `
 const copyHandler= ()=>{
@@ -58,8 +49,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:04-sep-2023</h3>
-        <p>at 09:36 am</p>
+        <h3>DATE:05-sep-2023</h3>
+        <p>at 02:20 pm</p>
         
         <div>
             <pre>
