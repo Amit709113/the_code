@@ -2,28 +2,51 @@ import React from 'react'
 
 const answer=
 `
-
-List<List<Integer>>al=new ArrayList<>();
-for(int i=0;i<V;i++){
-    al.add(new ArrayList<>());
-}
-for(int i=0;i<edges.length;i++){
-    al.get(edges[i][0]).add(edges[i][1]);
-    al.get(edges[i][1]).add(edges[i][0]);
-}
-return al;
+vector<int >vis(V, 0);
+    int lastnode =0;
+    for (int i =0;i< V ;i++){
+        if (vis[i] ==0 ){
+            dfs(adj,V , i, vis);
+            lastnode =i ;
+        }
+    }
+    for (int i=0;i< V ;i++){
+        vis[i]= 0;
+    }
+    dfs(adj, V , lastnode , vis);
+    
+    for (int i=0; i< V ;i++){
+        if (vis[i] ==0 ) {
+            return -1;
+        }
+    }
+    return lastnode;
+	    
+	}
+	void dfs(vector<int >adj[] , int V , int start , vector<int >& vis ){
+        vis[start] = 1;
+        for (auto it:adj[start]){
+            if (!vis[it] ){
+                dfs(adj , V , it , vis );
+            }
+        }
     
 `
 const stepp=`
 
-STEP 1: change language to java
+STEP 1: change language to C++ 🚩  
 STEP 2: paste at marked position
-class Solution {
-    public List<List<Integer>> printGraph(int V, int edges[][]) {
-        //paste here 
-         
-    }
-}
+class Solution 
+{
+    public:
+    //Function to find a Mother Vertex in the Graph.
+	int findMotherVertex(int V, vector<int>adj[])
+	{
+	    // Code here
+        //paste here
+	}
+
+};
 
 `
 const copyHandler= ()=>{
@@ -49,8 +72,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:05-sep-2023</h3>
-        <p>at 02:20 pm</p>
+        <h3>DATE:06-sep-2023</h3>
+        <p>at 08:10 am</p>
         
         <div>
             <pre>
