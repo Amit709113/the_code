@@ -51,7 +51,7 @@ class Solution
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("The code has been copied successfully 👍🏽");
+        alert("(imp* change language to c++)The code has been copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
