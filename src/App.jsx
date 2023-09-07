@@ -2,56 +2,50 @@ import React from 'react'
 
 const answer=
 `
-vector<int >vis(V, 0);
-    int lastnode =0;
-    for (int i =0;i< V ;i++){
-        if (vis[i] ==0 ){
-            dfs(adj,V , i, vis);
-            lastnode =i ;
-        }
-    }
-    for (int i=0;i< V ;i++){
-        vis[i]= 0;
-    }
-    dfs(adj, V , lastnode , vis);
-    
-    for (int i=0; i< V ;i++){
-        if (vis[i] ==0 ) {
-            return -1;
-        }
-    }
-    return lastnode;
-	    
-	}
-	void dfs(vector<int >adj[] , int V , int start , vector<int >& vis ){
-        vis[start] = 1;
-        for (auto it:adj[start]){
-            if (!vis[it] ){
-                dfs(adj , V , it , vis );
+
+        int maxLimit = 100001;
+        int[] steps = new int[maxLimit];
+        Arrays.fill(steps, -1);
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(start);
+        steps[start] = 0;
+
+        while (!queue.isEmpty()) {
+            int current = queue.poll();
+            if (current == end) {
+                return steps[current];
+            }
+
+            for (int number : arr) {
+                int newStart = (current * number) % 100000;
+                if (steps[newStart] == -1) {
+                    steps[newStart] = steps[current] + 1;
+                    queue.offer(newStart);
+                }
             }
         }
+
+        return -1; 
     
 `
 const stepp=`
 
-STEP 1: change language to C++ 🚩  
+STEP 1: change language to java 🚩  
 STEP 2: paste at marked position
-class Solution 
-{
-    public:
-    //Function to find a Mother Vertex in the Graph.
-	int findMotherVertex(int V, vector<int>adj[])
-	{
-	    // Code here
-        //paste here
-	}
+class Solution {
+    int minimumMultiplications(int[] arr, int start, int end) {
 
-};
+        // Your code here
+        //paste here
+    }
+}
+
 
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("(imp* change language to c++)The code has been copied successfully 👍🏽");
+        alert("(-> JAVA The code has been copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
@@ -72,8 +66,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:06-sep-2023</h3>
-        <p>at 08:10 am</p>
+        <h3>DATE:07-sep-2023</h3>
+        <p>at 07:30 am</p>
         
         <div>
             <pre>
