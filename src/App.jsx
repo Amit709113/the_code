@@ -1,45 +1,45 @@
 import React from 'react'
+import sep8 from "./sep8.png"
 
 const answer=
 `
-
-        int maxLimit = 100001;
-        int[] steps = new int[maxLimit];
-        Arrays.fill(steps, -1);
-
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(start);
-        steps[start] = 0;
-
-        while (!queue.isEmpty()) {
-            int current = queue.poll();
-            if (current == end) {
-                return steps[current];
-            }
-
-            for (int number : arr) {
-                int newStart = (current * number) % 100000;
-                if (steps[newStart] == -1) {
-                    steps[newStart] = steps[current] + 1;
-                    queue.offer(newStart);
-                }
-            }
-        }
-
-        return -1; 
+    if(root==null) return null;
+    ArrayList<Integer>list=new ArrayList<>();
+    inorder(root,list);
+    Collections.sort(list);
+    int[] idx={0};
+    inorderChange(root,list,idx);
+    return root;
+    }
+    public void inorder(Node root,ArrayList<Integer>list){
+    if(root==null) return;
+    inorder(root.left,list);
+    list.add(root.data);
+    inorder(root.right,list);
+    }
+    public void inorderChange(Node root,ArrayList<Integer>list,int[] idx){
+    if(root==null) return;
+    inorderChange(root.left,list,idx);
+    root.data = list.get(idx[0]);
+    idx[0]++;
+    inorderChange(root.right,list,idx);
     
 `
 const stepp=`
 
 STEP 1: change language to java 🚩  
 STEP 2: paste at marked position
-class Solution {
-    int minimumMultiplications(int[] arr, int start, int end) {
-
-        // Your code here
-        //paste here
+class Solution
+{
+    // The given root is the root of the Binary Tree
+    // Return the root of the generated BST
+    Node binaryTreeToBST(Node root)
+    {
+       // Your code here
+       //paste here
     }
 }
+ 
 
 
 `
@@ -66,8 +66,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>DATE:07-sep-2023</h3>
-        <p>at 07:30 am</p>
+        <h3><img src={sep8} alt="sep 8,2023" width="100px" height="50px" /></h3>
+        <p>at 09:10 am</p>
         
         <div>
             <pre>
