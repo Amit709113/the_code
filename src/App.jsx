@@ -1,42 +1,48 @@
 import React from 'react'
-import sep8 from "./sep8.png"
+
 
 const answer=
 `
-    if(root==null) return null;
-    ArrayList<Integer>list=new ArrayList<>();
-    inorder(root,list);
-    Collections.sort(list);
-    int[] idx={0};
-    inorderChange(root,list,idx);
-    return root;
+     int n = count(root);
+        convertArray(root);
+        Integer[] arr = new Integer[n];
+        arr = nodeArray.toArray(arr);
+        Arrays.sort(arr);
+        
+        return arr[n-K];
     }
-    public void inorder(Node root,ArrayList<Integer>list){
-    if(root==null) return;
-    inorder(root.left,list);
-    list.add(root.data);
-    inorder(root.right,list);
+    
+    ArrayList<Integer> nodeArray = new ArrayList<>();
+    
+    private void convertArray(Node root){
+        if(root == null){
+            return;
+        }
+        
+        nodeArray.add(root.data);
+        convertArray(root.left);
+        convertArray(root.right);
     }
-    public void inorderChange(Node root,ArrayList<Integer>list,int[] idx){
-    if(root==null) return;
-    inorderChange(root.left,list,idx);
-    root.data = list.get(idx[0]);
-    idx[0]++;
-    inorderChange(root.right,list,idx);
+    
+    private int count(Node root){
+        if(root == null){
+            return 0;
+        }
+        
+        return count(root.left) + count(root.right) + 1;
     
 `
 const stepp=`
 
-STEP 1: change language to java 🚩  
+STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution
 {
-    // The given root is the root of the Binary Tree
-    // Return the root of the generated BST
-    Node binaryTreeToBST(Node root)
+    // return the Kth largest element in the given BST rooted at 'root'
+    public int kthLargest(Node root,int K)
     {
-       // Your code here
-       //paste here
+        //Your code here
+        //paste here
     }
 }
  
@@ -45,7 +51,7 @@ class Solution
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("(-> JAVA The code has been copied successfully 👍🏽");
+        alert("(The code has been copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
@@ -66,8 +72,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3><img src={sep8} alt="sep 8,2023" width="100px" height="50px" /></h3>
-        <p>at 09:10 am</p>
+        <h3> DATE: 09-sep-2023 </h3>
+        <p>at 05:45 am</p>
         
         <div>
             <pre>
