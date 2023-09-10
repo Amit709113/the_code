@@ -3,46 +3,51 @@ import React from 'react'
 
 const answer=
 `
-     int n = count(root);
-        convertArray(root);
-        Integer[] arr = new Integer[n];
-        arr = nodeArray.toArray(arr);
-        Arrays.sort(arr);
+        Node temp;
+        Node p=new Node(Key);
+        p.left=null;
+        p.right=null;
+       
         
-        return arr[n-K];
-    }
-    
-    ArrayList<Integer> nodeArray = new ArrayList<>();
-    
-    private void convertArray(Node root){
-        if(root == null){
-            return;
+        if(root==null) root=p;
+        else
+        {
+            temp=root;
+            while(temp!=null)
+            {
+                if(temp.data==p.data) break;
+                if(temp.data>p.data)
+                {
+                    if(temp.left==null)
+                    {
+                      temp.left=p;
+                      break;
+                    }
+                    else
+                      temp=temp.left;
+                }
+                else if(temp.data<p.data)
+                {
+                    if(temp.right==null)
+                    {
+                        temp.right=p;
+                        break;
+                    }
+                    else
+                     temp=temp.right;
+                }
+            }
         }
-        
-        nodeArray.add(root.data);
-        convertArray(root.left);
-        convertArray(root.right);
-    }
-    
-    private int count(Node root){
-        if(root == null){
-            return 0;
-        }
-        
-        return count(root.left) + count(root.right) + 1;
-    
+        return root;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
-class Solution
-{
-    // return the Kth largest element in the given BST rooted at 'root'
-    public int kthLargest(Node root,int K)
-    {
-        //Your code here
-        //paste here
+class Solution {
+    // Function to insert a node in a BST.
+    Node insert(Node root, int Key) {
+        // your code here
     }
 }
  
@@ -72,8 +77,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3> DATE: 09-sep-2023 </h3>
-        <p>at 05:45 am</p>
+        <h3> DATE: 10-sep-2023 </h3>
+        <p>at 06:53 am</p>
         
         <div>
             <pre>
