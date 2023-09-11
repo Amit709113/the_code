@@ -3,51 +3,31 @@ import React from 'react'
 
 const answer=
 `
-        Node temp;
-        Node p=new Node(Key);
-        p.left=null;
-        p.right=null;
-       
-        
-        if(root==null) root=p;
-        else
-        {
-            temp=root;
-            while(temp!=null)
-            {
-                if(temp.data==p.data) break;
-                if(temp.data>p.data)
-                {
-                    if(temp.left==null)
-                    {
-                      temp.left=p;
-                      break;
-                    }
-                    else
-                      temp=temp.left;
-                }
-                else if(temp.data<p.data)
-                {
-                    if(temp.right==null)
-                    {
-                        temp.right=p;
-                        break;
-                    }
-                    else
-                     temp=temp.right;
-                }
-            }
+    int counter=2;
+    while(counter<=n){
+        if(n%counter==0){
+            //the element will be deleted
+            return false;
         }
-        return root;
+        n = n-n/counter;
+        counter++;
+        
+    }
+    return true;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
-class Solution {
-    // Function to insert a node in a BST.
-    Node insert(Node root, int Key) {
-        // your code here
+class Solution
+{
+    // Complete the function
+    // n: Input n
+    // Return True if the given number is a lucky number else return False
+    public static boolean isLucky(int n)
+    {
+        // Your code here
+        //paste here
     }
 }
  
@@ -77,8 +57,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3> DATE: 10-sep-2023 </h3>
-        <p>at 06:53 am</p>
+        <h3> DATE: 11-sep-2023 </h3>
+        <p>at 05:59 am</p>
         
         <div>
             <pre>
