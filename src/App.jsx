@@ -3,22 +3,31 @@ import React, { useState } from 'react'
 
 const answer=
 `
-    long[] pns = {6l,28l,496l,8128l,33550336l,8589869056l,137438691328l};
-    for (long pn : pns) {
-        if (pn == N) return 1;
-    }
-    return 0;
+    if(S==0 && N>1) return "-1";
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<N;i++){
+            if(S>=9) {
+                sb.append('9');
+                S-=9;
+            }
+            else {
+                sb.append(S+"");
+                S=0;
+            }
+        }
+        if(S>0) return "-1";
+        return sb.toString();
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
-class Solution {
-    static int isPerfectNumber(long N) {
+class Solution{
+    static String findLargest(int N, int S){
         // code here
         //paste here
     }
-};
+}
  
 
 
@@ -46,7 +55,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  12-sep-2023 at 7:49 am</h3>
+        <h3>last modified :  13-sep-2023 at 2:00 am</h3>
         
         
         <div>
