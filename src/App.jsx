@@ -1,35 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 const answer=
 `
-    int counter=2;
-    while(counter<=n){
-        if(n%counter==0){
-            //the element will be deleted
-            return false;
-        }
-        n = n-n/counter;
-        counter++;
-        
+    long[] pns = {6l,28l,496l,8128l,33550336l,8589869056l,137438691328l};
+    for (long pn : pns) {
+        if (pn == N) return 1;
     }
-    return true;
+    return 0;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
-class Solution
-{
-    // Complete the function
-    // n: Input n
-    // Return True if the given number is a lucky number else return False
-    public static boolean isLucky(int n)
-    {
-        // Your code here
+class Solution {
+    static int isPerfectNumber(long N) {
+        // code here
         //paste here
     }
-}
+};
  
 
 
@@ -57,8 +46,8 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3> DATE: 11-sep-2023 </h3>
-        <p>at 05:59 am</p>
+        <h3>last modified :  12-sep-2023 at 7:49 am</h3>
+        
         
         <div>
             <pre>
@@ -66,6 +55,7 @@ const App = () => {
             </pre> 
         </div>
         <br />
+        <h6>{new Date().toLocaleTimeString()}</h6>
         <p>{`ans ->`}</p>
         <br />
         <div style={{display:"flex",justifyContent:"center",gap:50}}>
