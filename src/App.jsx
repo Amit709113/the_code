@@ -3,30 +3,43 @@ import React, { useState } from 'react'
 
 const answer=
 `
-    if(S==0 && N>1) return "-1";
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<N;i++){
-            if(S>=9) {
-                sb.append('9');
-                S-=9;
-            }
-            else {
-                sb.append(S+"");
-                S=0;
-            }
+    int mod=(int)1e9+7;
+    int zero=1;
+    int [][] dp=new int[n][sum+1];
+    for(int i=0;i<n;i++)
+    {
+        dp[i][0]=1;
+        if(arr[0]==0)zero=2;
+        
+    }
+    if(arr[0]<=sum)
+        dp[0][arr[0]]=1;
+    
+    
+    for(int j=1;j<n;j++)
+    {
+        for(int t=0;t<=sum;t++)
+        {
+            int np=dp[j-1][t];
+            int p=0;
+            if(arr[j]<=t)
+                p=dp[j-1][t-arr[j]];
+            dp[j][t]=(p+np)%mod;
+            
         }
-        if(S>0) return "-1";
-        return sb.toString();
+    }
+    return dp[n-1][sum]*zero%mod;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    static String findLargest(int N, int S){
-        // code here
+    public int perfectSum(int arr[],int n, int sum) 
+	{ 
+	    // Your code goes here
         //paste here
-    }
+	} 
 }
  
 
@@ -55,7 +68,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  13-sep-2023 at 2:00 am</h3>
+        <h3>last modified :  14-sep-2023 at 7:01 am</h3>
         
         
         <div>
