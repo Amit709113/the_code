@@ -3,43 +3,37 @@ import React, { useState } from 'react'
 
 const answer=
 `
-    int mod=(int)1e9+7;
-    int zero=1;
-    int [][] dp=new int[n][sum+1];
-    for(int i=0;i<n;i++)
-    {
-        dp[i][0]=1;
-        if(arr[0]==0)zero=2;
-        
-    }
-    if(arr[0]<=sum)
-        dp[0][arr[0]]=1;
-    
-    
-    for(int j=1;j<n;j++)
-    {
-        for(int t=0;t<=sum;t++)
-        {
-            int np=dp[j-1][t];
-            int p=0;
-            if(arr[j]<=t)
-                p=dp[j-1][t-arr[j]];
-            dp[j][t]=(p+np)%mod;
-            
+     int sum = 0;
+        for(int i=0; i<N; i++) {
+            sum += arr[i];
         }
+        
+        if(sum %2 == 1) return 0;
+        
+        sum /= 2;
+        boolean[] dp = new boolean[sum+1];
+        return (subset(arr, sum, N-1, dp) == true) ? 1:0;
     }
-    return dp[n-1][sum]*zero%mod;
+    
+    static boolean subset(int[] arr, int sum , int N, boolean[] dp) {
+        if(sum == 0) return true;
+        if(N <= 0) return false;
+        if(sum < 0) return false;
+        
+        if(dp[sum] == true) return false;
+        
+        return dp[sum] = subset(arr, sum-arr[N-1], N-1, dp) || subset(arr, sum, N-1, dp);
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    public int perfectSum(int arr[],int n, int sum) 
-	{ 
-	    // Your code goes here
-        //paste here
-	} 
+   static int equalPartition(int N, int arr[])
+    {
+        // code here
+        // paste here
+    }
 }
  
 
@@ -68,7 +62,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  14-sep-2023 at 7:01 am</h3>
+        <h3>last modified :  15-sep-2023 at 5:12 am</h3>
         
         
         <div>
