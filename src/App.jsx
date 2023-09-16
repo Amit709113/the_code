@@ -3,35 +3,31 @@ import React, { useState } from 'react'
 
 const answer=
 `
-     int sum = 0;
-        for(int i=0; i<N; i++) {
-            sum += arr[i];
-        }
+if(n==1) return 1L;
         
-        if(sum %2 == 1) return 0;
-        
-        sum /= 2;
-        boolean[] dp = new boolean[sum+1];
-        return (subset(arr, sum, N-1, dp) == true) ? 1:0;
-    }
-    
-    static boolean subset(int[] arr, int sum , int N, boolean[] dp) {
-        if(sum == 0) return true;
-        if(N <= 0) return false;
-        if(sum < 0) return false;
-        
-        if(dp[sum] == true) return false;
-        
-        return dp[sum] = subset(arr, sum-arr[N-1], N-1, dp) || subset(arr, sum, N-1, dp);
+int[] dp=new int[n+1];
+dp[0]=1;
+
+int mod=1000000007;
+
+for(int i=1;i<=n;i++){
+    int one=dp[i-1];
+    int two=0,three=0;
+    if(i>=2) two=dp[i-2];
+    if(i>=3) three=dp[i-3];
+    dp[i]=((one%mod+two%mod)%mod+three%mod)%mod;
+}
+
+return dp[n];
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-   static int equalPartition(int N, int arr[])
+    static long countWays(int n)
     {
-        // code here
+        // add your code here
         // paste here
     }
 }
@@ -62,7 +58,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  15-sep-2023 at 5:12 am</h3>
+        <h3>last modified :  16-sep-2023 at 9:19 PM</h3>
         
         
         <div>
