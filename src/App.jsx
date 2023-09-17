@@ -3,32 +3,35 @@ import React, { useState } from 'react'
 
 const answer=
 `
-if(n==1) return 1L;
-        
-int[] dp=new int[n+1];
-dp[0]=1;
-
-int mod=1000000007;
-
-for(int i=1;i<=n;i++){
-    int one=dp[i-1];
-    int two=0,three=0;
-    if(i>=2) two=dp[i-2];
-    if(i>=3) three=dp[i-3];
-    dp[i]=((one%mod+two%mod)%mod+three%mod)%mod;
-}
-
-return dp[n];
+long []arr1 =  new long[N];
+        long m=0 ,n=1,c=0 ;
+        if(N==1){
+            arr1[0]=n;
+            return arr1;
+        }
+        for(int i=2; i<=N; i++){
+            
+            arr1[0]=1;
+            c=m+n;
+            arr1[i-1]=c;
+            m=n;
+            n=c;
+            
+        }
+        return arr1;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    static long countWays(int n)
+    //Function to return list containing first n fibonacci numbers.
+    public static long[] printFibb(int n) 
     {
-        // add your code here
+        //Your code here
         // paste here
+        
+        
     }
 }
  
@@ -58,7 +61,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  16-sep-2023 at 9:19 PM</h3>
+        <h3>last modified :  17-sep-2023 at 11:58 AM</h3>
         
         
         <div>
