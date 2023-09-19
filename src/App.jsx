@@ -3,22 +3,29 @@ import React, { useState } from 'react'
 
 const answer=
 `
-    if(n == 0) return false;
-    return (n & n-1) == 0 ? true : false;
+    int count=0;
+        while(n!=0){
+            count++;
+            if((n&1)==1){
+                return count;
+            }
+            n=n>>1;
+        }
+        return count;  
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    //Function to return list containing first n fibonacci numbers.
-    // Function to check if given number n is a power of two.
-    public static boolean isPowerofTwo(long n){
-        
+    public static int getFirstSetBit(int n){
+            
         // Your code here
         // paste here
-        
+            
     }
+        
+    
 }
  
 
@@ -47,7 +54,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  18-sep-2023 at 8:40 PM</h3>
+        <h3>last modified :  19-sep-2023 at 6:58 AM</h3>
         
         
         <div>
