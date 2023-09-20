@@ -3,22 +3,18 @@ import React, { useState } from 'react'
 
 const answer=
 `
-    int count=0;
-        while(n!=0){
-            count++;
-            if((n&1)==1){
-                return count;
-            }
-            n=n>>1;
-        }
-        return count;  
+     ArrayList<Integer> ans = new ArrayList<>();
+        D=D%16;
+        ans.add((N<<D | (N >> (16-D))) & 0xFFFF);
+        ans.add((N>>D | (N << (16-D))) & 0xFFFF);
+        return ans;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    public static int getFirstSetBit(int n){
+    ArrayList<Integer> rotate(int N, int D)
             
         // Your code here
         // paste here
@@ -54,7 +50,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  19-sep-2023 at 6:58 AM</h3>
+        <h3>last modified :  20-sep-2023 at 5:35 AM</h3>
         
         
         <div>
