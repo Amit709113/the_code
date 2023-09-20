@@ -3,18 +3,37 @@ import React, { useState } from 'react'
 
 const answer=
 `
-     ArrayList<Integer> ans = new ArrayList<>();
-        D=D%16;
-        ans.add((N<<D | (N >> (16-D))) & 0xFFFF);
-        ans.add((N>>D | (N << (16-D))) & 0xFFFF);
-        return ans;
+if (n == 0) {
+    return 0;
+}
+
+if (n == 1) {
+    return arr[0];
+}
+
+int[] dp = new int[n];
+
+// Initialize the first two elements of the dp array.
+dp[0] = arr[0];
+dp[1] = Math.max(arr[0], arr[1]);
+
+// Calculate the maximum money that can be obtained for each house.
+for (int i = 2; i < n; i++) {
+    // The thief can either skip the current house or loot it.
+    // If he loots it, he adds the current house's value to the value obtained
+    // two houses before (to ensure no consecutive houses are looted).
+    dp[i] = Math.max(dp[i - 1], dp[i - 2] + arr[i]);
+}
+
+// The maximum money that can be obtained is stored in dp[n-1].
+return dp[n - 1];
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    ArrayList<Integer> rotate(int N, int D)
+    public int FindMaxSum(int arr[], int n)
             
         // Your code here
         // paste here
@@ -50,7 +69,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  20-sep-2023 at 5:35 AM</h3>
+        <h3>last modified :  21-sep-2023 at 5:23 AM</h3>
         
         
         <div>
