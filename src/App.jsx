@@ -3,39 +3,33 @@ import React, { useState } from 'react'
 
 const answer=
 `
-if (n == 0) {
-    return 0;
-}
-
-if (n == 1) {
-    return arr[0];
-}
-
-int[] dp = new int[n];
-
-// Initialize the first two elements of the dp array.
-dp[0] = arr[0];
-dp[1] = Math.max(arr[0], arr[1]);
-
-// Calculate the maximum money that can be obtained for each house.
-for (int i = 2; i < n; i++) {
-    // The thief can either skip the current house or loot it.
-    // If he loots it, he adds the current house's value to the value obtained
-    // two houses before (to ensure no consecutive houses are looted).
-    dp[i] = Math.max(dp[i - 1], dp[i - 2] + arr[i]);
-}
-
-// The maximum money that can be obtained is stored in dp[n-1].
-return dp[n - 1];
+        ArrayList <Integer> al=new ArrayList<>();
+        int i=0;
+        for(;i<n;i++)
+        {
+            if(arr[i]==x)    al.add(i);
+            if(al.size()==1)    break;
+        }
+        if(i==n && al.size()==0)
+        {
+            al.add(-1);al.add(-1);
+            return al;
+        }
+        for(int j=n-1;j>=i;j--)
+        {
+            if(arr[j]==x)    al.add(j);
+            if(al.size()==2)    return al;
+        }
+        return al;
 `
 const stepp=`
 
 STEP 1: change language to java  
 STEP 2: paste at marked position
 class Solution{
-    public int FindMaxSum(int arr[], int n)
-            
-        // Your code here
+    ArrayList<Integer> find(int arr[], int n, int x)
+    {
+        // code here
         // paste here
             
     }
@@ -69,7 +63,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  21-sep-2023 at 5:23 AM</h3>
+        <h3>last modified :  22-sep-2023 at 6:50 AM</h3>
         
         
         <div>
