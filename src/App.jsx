@@ -3,59 +3,41 @@ import React, { useState } from 'react'
 
 const answer=
 `
-   int sum=0,leftsum=0;
-
-        for(int i=0;i<n;i++)
-
-        {
-
-            sum+=a[i];
-
+        ArrayList<Integer>list = new ArrayList<>();
+        HashMap<Integer,Integer>hs = new HashMap<>();
+        for(int i = 0; i<arr.length; i++){
+            hs.put(arr[i],hs.getOrDefault(arr[i],0)+1);
         }
-
-        for(int i=0;i<n;i++)
-
-        {
-
-            sum-=a[i];
-
-            if(sum==leftsum)
-
-            {
-
-                return i+1;
-
-            }
-
-            leftsum+=a[i];
-
+        for(int i : hs.keySet()){
+            int key = hs.get(i);
+            if(key > 1)
+                list.add(i);
+            
         }
+        if(list.size() == 0 ) list.add(-1);
+        Collections.sort(list);
+        return list;
 
-        return -1;
-    }
 `
 const stepp=`
 
-STEP 1: change language to c++  
+STEP 1: change language to java   
 STEP 2: paste at marked position
 class Solution{
-    // a: input array
-    // n: size of array
-    // Function to find equilibrium point in the array.
-    public static int equilibriumPoint(long arr[], int n) {
-        // Your code here
-        //paste here
+    class Solution {
+        public static ArrayList<Integer> duplicates(int arr[], int n) {
+            // code here
+            // paste here
+        }
     }
         
     
 }
- 
-
 
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("(The code has been copied successfully 👍🏽");
+        alert("remember to switch to java, copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
@@ -76,7 +58,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  23-sep-2023 09:59 AM</h3>
+        <h3>last modified :  24-sep-2023 04:36 AM</h3>
         
         
         <div>
