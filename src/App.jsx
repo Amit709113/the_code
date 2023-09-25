@@ -3,20 +3,37 @@ import React, { useState } from 'react'
 
 const answer=
 `
-        ArrayList<Integer>list = new ArrayList<>();
-        HashMap<Integer,Integer>hs = new HashMap<>();
-        for(int i = 0; i<arr.length; i++){
-            hs.put(arr[i],hs.getOrDefault(arr[i],0)+1);
+        Arrays.sort(A);
+        Arrays.sort(B);
+
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+
+        for(int i=N-1;i>N-K-1;i--){
+            for(int j=N-1;j>N-K-1;j--){
+                int n=A[i]+B[j];
+                
+                if(pq.size()<K){
+                    pq.add(n);
+                }else{
+                    if(pq.peek()<n){
+                        pq.poll();
+                        pq.add(n);
+                    }
+                else break;
+                }
+            }
         }
-        for(int i : hs.keySet()){
-            int key = hs.get(i);
-            if(key > 1)
-                list.add(i);
-            
+
+        List<Integer> ans=new ArrayList<>();
+
+        while(!pq.isEmpty()){
+            if(ans.isEmpty())
+            ans.add(pq.poll());
+            else
+            ans.add(0,pq.poll());
         }
-        if(list.size() == 0 ) list.add(-1);
-        Collections.sort(list);
-        return list;
+
+        return ans;
 
 `
 const stepp=`
@@ -25,7 +42,7 @@ STEP 1: change language to java
 STEP 2: paste at marked position
 class Solution{
     class Solution {
-        public static ArrayList<Integer> duplicates(int arr[], int n) {
+        static List<Integer> maxCombinations(int N, int K, int A[], int B[]) {
             // code here
             // paste here
         }
@@ -37,7 +54,7 @@ class Solution{
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("remember to switch to java, copied successfully 👍🏽");
+        alert("copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
@@ -58,7 +75,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  24-sep-2023 04:36 AM</h3>
+        <h3>last modified :  25-sep-2023 09:02 AM</h3>
         
         
         <div>
