@@ -3,45 +3,31 @@ import React, { useState } from 'react'
 
 const answer=
 `
-Map<String, Integer> mp = new HashMap<>();
-    
-String recur (Node root){
-    if(root ==null){
-        return "$";
-    }
-    String s = "";
-    if(root.left==null && root.right==null){
-        s+=root.data;
-        return s;
-    }
-    
-    
-   
-   s+=root.data;
-    s+=recur(root.left);
-    s+=recur(root.right);
-    
- 
-     mp.put(s,mp.getOrDefault(s,0)+1);
-     
-     return s;
-    
-    
+static ArrayList<Integer> ans;
+static HashSet<Integer> set;
+Solution(){
+    ans = new ArrayList<>();
+    set = new HashSet<>();
 }
-int dupSub(Node root) {
 
-    recur(root);
-    for(Integer num : mp.values()){
-        
-        if(num >=2){
-            return 1;
-        }
-        
-    
-        
+public static ArrayList<Integer> findCommon(Node root1,Node root2)
+{
+    preorder(root1);
+    preorder(root2);
+    Collections.sort(ans);
+    return ans;
+}
+public static void preorder(Node root){
+    if(root == null){
+        return ;
     }
-    
-    return 0;
+    if(set.contains(root.data)){
+        ans.add(root.data);
+    }else{
+        set.add(root.data);
+    }
+    preorder(root.left);
+    preorder(root.right);
 }
 
 `
@@ -49,14 +35,18 @@ const stepp=`
 
         STEP 1: change language to java   
         Step 2: 
-        class Solution {
-            int dupSub(Node root) {
-                // code here 
+        class Solution
+        {
+            //Function to find the nodes that are common in both BST.
+            public static ArrayList<Integer> findCommon(Node root1,Node root2)
+            {
+                //code here
             }
         }
         remove this from above code
         
-        int dupSub(Node root ){
+        public static ArrayList<Integer> findCommon(Node root1,Node root2)
+        {
             //code here
         }
 
@@ -91,7 +81,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  12-oct-2023 10:24 PM</h3>
+        <h3>last modified :  14-oct-2023 10:20 PM</h3>
         
         
         <div>
