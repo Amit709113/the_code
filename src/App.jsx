@@ -3,55 +3,49 @@ import React, { useState } from 'react'
 
 const answer=
 `
-static ArrayList<Integer> ans;
-static HashSet<Integer> set;
-Solution(){
-    ans = new ArrayList<>();
-    set = new HashSet<>();
-}
-
-public static ArrayList<Integer> findCommon(Node root1,Node root2)
-{
-    preorder(root1);
-    preorder(root2);
-    Collections.sort(ans);
-    return ans;
-}
-public static void preorder(Node root){
-    if(root == null){
-        return ;
+Node buildBalancedTree(Node root) 
+    {
+        //Add your code here.
+        if(root==null) return null;
+        ArrayList<Integer>list=new ArrayList<>();
+        inorder(root,list);
+        return constructTree(list,0,list.size()-1);
     }
-    if(set.contains(root.data)){
-        ans.add(root.data);
-    }else{
-        set.add(root.data);
+    public void inorder(Node root,ArrayList<Integer>list){
+        if(root==null) return ;
+        inorder(root.left,list);
+        list.add(root.data);
+        inorder(root.right,list);
     }
-    preorder(root.left);
-    preorder(root.right);
-}
-
+    public Node constructTree(ArrayList<Integer>list,int low,int high){
+        if(low>high) return null;
+        int mid=(low+high)/2;
+        Node curr = new Node(list.get(mid));
+        curr.left=constructTree(list,low,mid-1);
+        curr.right=constructTree(list,mid+1,high);
+        return curr;
+    }
 `
 const stepp=`
 
         STEP 1: change language to java   
         Step 2: 
-        class Solution
+        class GfG
         {
-            //Function to find the nodes that are common in both BST.
-            public static ArrayList<Integer> findCommon(Node root1,Node root2)
+            Node buildBalancedTree(Node root) 
             {
-                //code here
+                //Add your code here.
             }
         }
         remove this from above code
         
-        public static ArrayList<Integer> findCommon(Node root1,Node root2)
+        Node buildBalancedTree(Node root) 
         {
-            //code here
+            //Add your code here.
         }
 
         Step 3: then paste here
-        class Solution{
+        class GfG {
             //paste here
         }
         
@@ -81,7 +75,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  14-oct-2023 10:20 PM</h3>
+        <h3>last modified :  15-oct-2023 8:06 PM</h3>
         
         
         <div>
