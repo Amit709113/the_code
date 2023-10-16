@@ -115,7 +115,7 @@ public:
     }
 `,Od=`
 
-        STEP 1: change language to java   
+        STEP 1: change language to c++  
         Step 2: 
         class Solution
         {
@@ -140,4 +140,4 @@ public:
         
         
 
-`,Md=()=>{navigator.clipboard.writeText(rc).then(()=>{alert("copied successfully 👍🏽")}).catch(()=>{alert("something went wrong please copy manually😔")})},Hu={background:"#9b59b6",color:"#fff",border:"2px solid #ecf0f1",outline:"none",borderRadius:"5px",textTransform:"uppercase",cursor:"pointer",padding:"15px 20px"},Dd=()=>K.jsxs(K.Fragment,{children:[K.jsx("h1",{children:"Solution of POTD  "}),K.jsx("h3",{children:"last modified :  16-oct-2023 9:30 PM"}),K.jsx("div",{children:K.jsx("pre",{children:Od})}),K.jsx("br",{}),K.jsx("h6",{children:new Date().toLocaleTimeString()}),K.jsx("p",{children:"ans ->"}),K.jsx("br",{}),K.jsxs("div",{style:{display:"flex",justifyContent:"center",gap:50},children:[K.jsx("button",{style:Hu,onClick:Md,children:" click to copy "}),K.jsx("a",{href:"https://practice.geeksforgeeks.org/problem-of-the-day",children:K.jsx("button",{style:Hu,marginRight:"50px",children:"POTD direct Link"})})]}),K.jsx("br",{}),K.jsx("div",{style:{display:"flex",justifyContent:"center"},children:K.jsx("textarea",{className:"textareaStyle",type:"textarea",style:{fontSize:"12pt",width:"90%",height:"60vh",background:"#d3d3d3"},defaultValue:rc,readOnly:!0})})]});Wl.createRoot(document.getElementById("root")).render(K.jsx(Sc.StrictMode,{children:K.jsx(Dd,{})}));
+`,Md=()=>{navigator.clipboard.writeText(rc).then(()=>{alert(" c++ copied successfully 👍🏽")}).catch(()=>{alert("something went wrong please copy manually😔")})},Hu={background:"#9b59b6",color:"#fff",border:"2px solid #ecf0f1",outline:"none",borderRadius:"5px",textTransform:"uppercase",cursor:"pointer",padding:"15px 20px"},Dd=()=>K.jsxs(K.Fragment,{children:[K.jsx("h1",{children:"Solution of POTD  "}),K.jsx("h3",{children:"last modified :  16-oct-2023 9:30 PM"}),K.jsx("div",{children:K.jsx("pre",{children:Od})}),K.jsx("br",{}),K.jsx("h6",{children:new Date().toLocaleTimeString()}),K.jsx("p",{children:"ans ->"}),K.jsx("br",{}),K.jsxs("div",{style:{display:"flex",justifyContent:"center",gap:50},children:[K.jsx("button",{style:Hu,onClick:Md,children:" click to copy "}),K.jsx("a",{href:"https://practice.geeksforgeeks.org/problem-of-the-day",children:K.jsx("button",{style:Hu,marginRight:"50px",children:"POTD direct Link"})})]}),K.jsx("br",{}),K.jsx("div",{style:{display:"flex",justifyContent:"center"},children:K.jsx("textarea",{className:"textareaStyle",type:"textarea",style:{fontSize:"12pt",width:"90%",height:"60vh",background:"#d3d3d3"},defaultValue:rc,readOnly:!0})})]});Wl.createRoot(document.getElementById("root")).render(K.jsx(Sc.StrictMode,{children:K.jsx(Dd,{})}));
