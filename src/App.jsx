@@ -3,102 +3,101 @@ import React, { useState } from 'react'
 
 const answer=
 `
-int dr[] = {-1, 0, 1, 0};
-int dc[] = {0, 1, 0, -1};
-public int largestIsland(int N, int[][] grid) {
-HashMap<Integer, Integer> hm = new HashMap<>();
-int n = grid.length;
-int region = 2;
-int max = 0;
-
-for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) {
-        if (grid[i][j] == 1) {
-            int area = flood(grid, i, j, region);
-            hm.put(region, area);
-            max = Math.max(max, area);
-            region++;
+int t = 0;
+    int dx[4] = {1,-1,0,0};
+    int dy[4] = {0,0,-1,1};
+public:
+    int isValid(int x,int y,vector<vector<int>>& vis,vector<vector<int>>& grid){
+        return x<grid.size() and x>=0 and y<grid[0].size() and y>=0 and grid[x][y]==1 and vis[x][y]==0;
+    }
+    void dfsLen(vector<vector<int>>& grid,int i,int j,vector<vector<int>>& vis,int &len){
+        len+=1;
+        
+        vis[i][j]=1;
+        for(int k = 0;k<4;k++){
+            int x = i+dx[k];
+            int y = j+dy[k];
+            if(isValid(x,y,vis,grid)){
+                dfsLen(grid,x,y,vis,len);
+            }
         }
     }
-}
-
-
-
-for (int r = 0; r < n; r++) {
-    for (int c = 0; c < n; c++) {
-        if (grid[r][c] == 0) {
-            HashSet<Integer> hs = new HashSet<>();
-            int area = 1;
-
-            for (int i = 0; i < 4; i++) {
-                int nr = r + dr[i];
-                int nc = c + dc[i];
-
-                if (nr >= 0 && nr < n && nc >= 0 && nc < n) {
-                    hs.add(grid[nr][nc]);
+    void dfs(vector<vector<int>>& isLandLen,int i,int j,vector<vector<int>>&mp,vector<vector<int>>& grid,int &len,vector<vector<int>>&mpu){
+        isLandLen[i][j] = len;
+        mpu[i][j]=t;
+        mp[i][j]=1;
+        for(int k = 0;k<4;k++){
+            int x = i+dx[k];
+            int y = j+dy[k];
+            if(isValid(x,y,mp,grid)){
+                dfs(isLandLen,x,y,mp,grid,len,mpu);
+            }
+        }
+    }
+    void solve(vector<vector<int>>& grid,vector<vector<int>>& islandLen,int i,int j,vector<vector<int>>&mpu,vector<vector<int>>& vis,vector<vector<int>>&mp){
+        int len = 0;
+        dfsLen(grid,i,j,vis,len);
+        dfs(islandLen,i,j,mp,grid,len,mpu);
+        t++;
+    }
+    bool isV(int x,int y,int n,int m){
+        return x>=0 and y>=0 and x<n and y<m;
+    }
+    int largestIsland(vector<vector<int>>& grid) {
+         int n = grid.size();
+        int m = grid[0].size();
+        int maxi = INT_MIN;
+        vector<vector<int>>mpu(n,vector<int>(m,0));
+        vector<vector<int>>isLandLen(n,vector<int>(m,0));
+        vector<vector<int>>vis(n,vector<int>(m,0));
+        vector<vector<int>>mp(n,vector<int>(m,0));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j]==1 and isLandLen[i][j]==0){
+                    solve(grid,isLandLen,i,j,mpu,vis,mp);
                 }
             }
-
-            for (int val : hs) {
-                area += hm.getOrDefault(val, 0); // Use getOrDefault to avoid potential null value
-            }
-
-            max = Math.max(max, area);
         }
-    }
-}
-return max;
-}
-
-public int flood(int[][] grid, int r, int c, int region) {
-int n = grid.length;
-if (r < 0 || r >= n || c < 0 || c >= n || grid[r][c] != 1) {
-    return 0;
-}
-
-int sum = 0;
-Stack<int[]> stack = new Stack<>();
-stack.push(new int[]{r, c});
-
-while (!stack.isEmpty()) {
-    int[] current = stack.pop();
-    int row = current[0];
-    int col = current[1];
-
-    if (grid[row][col] == 1) {
-        grid[row][col] = region;
-        sum++;
-
-        for (int i = 0; i < 4; i++) {
-            int nr = row + dr[i];
-            int nc = col + dc[i];
-
-            if (nr >= 0 && nr < n && nc >= 0 && nc < n) {
-                stack.push(new int[]{nr, nc});
+        for(int i = 0;i<n;i++){
+            for(int j=0;j<m;j++){
+                unordered_map<int,int>mpk;
+                if(grid[i][j]==0){
+                    int s = 0;
+                    for(int k=0;k<4;k++){
+                        int x = i+dx[k];
+                        int y = j+dy[k];
+                        if(isV(x,y,n,m) and mpk.find(mpu[x][y])==mpk.end()){
+                            s+=isLandLen[x][y];
+                        }
+                        if(isV(x,y,n,m) and grid[x][y]>0){
+                        mpk[mpu[x][y]]++;}
+                    }
+                    maxi = max(1+s,maxi);
+                }
             }
         }
+        return (maxi==INT_MIN)?n*m:maxi;
     }
-}
-return sum;
-}
 `
 const stepp=`
 
         STEP 1: change language to java   
         Step 2: 
         class Solution
-            public int largestIsland(int N,int[][] grid) 
-                {
-                    // code here
-                }
-        }
+        {
+        public:
+            int largestIsland(vector<vector<int>>& grid) 
+            {
+                // Your code goes here.
+            }
+        };
         remove this from above code
         
-        public int largestIsland(int N,int[][] grid) 
-        {
-                    // code here
-        }
-
+        public:
+            int largestIsland(vector<vector<int>>& grid) 
+            {
+                // Your code goes here.
+            }
         Step 3: then paste here
         
         class Solution {
@@ -131,7 +130,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  16-oct-2023 9:23 PM</h3>
+        <h3>last modified :  16-oct-2023 9:30 PM</h3>
         
         
         <div>
