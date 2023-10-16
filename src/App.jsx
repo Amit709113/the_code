@@ -81,7 +81,7 @@ public:
 `
 const stepp=`
 
-        STEP 1: change language to java   
+        STEP 1: change language to c++  
         Step 2: 
         class Solution
         {
@@ -109,7 +109,7 @@ const stepp=`
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert("copied successfully 👍🏽");
+        alert(" c++ copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
