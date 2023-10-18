@@ -45,7 +45,7 @@ const stepp=`
 `
 const copyHandler= ()=>{
     navigator.clipboard.writeText(answer).then(() => {
-        alert(" c++ copied successfully 👍🏽");
+        alert(" copied successfully 👍🏽");
       })
       .catch(() => {
         alert("something went wrong please copy manually😔");
