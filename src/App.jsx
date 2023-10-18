@@ -3,42 +3,43 @@ import React, { useState } from 'react'
 
 const answer=
 `
-for(int k=0;k<graph.length;k++) {
-			for(int i=0;i<graph.length;i++) {
-				for(int j=0;j<graph.length;j++) {
-					if(i == j) {
-						graph[i][j] = 1;
-					}
-					if((graph[i][k]==1 && graph[k][j]==1) && graph[i][j] == 0) {
-						graph[i][j] = 1;
-					}
-				}
-			}
-		}
-		ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-		ArrayList<Integer> list ;
-		for(int i=0;i<graph.length;i++) {
-			list = new ArrayList<>();
-			for(int j=0;j<graph[0].length;j++) {
-				list.add(graph[i][j]);
-			}
-			ans.add(list);
-		}
-		return ans;
 
+
+        List<Integer> res=new ArrayList<>();
+      
+        boolean[] visit=new boolean[V];
+        for(int i=0;i<V;i++){
+            if(!isCycle(i,adj,visit)){
+                res.add(i);
+            }
+        }
+        return res;
+    }
+    private static boolean isCycle(int source,List<List<Integer>> adj,boolean[] visit){
+       
+        visit[source]=true;
+        
+        for(Integer it:adj.get(source)){
+            if(!visit[it]){
+                if(isCycle(it,adj,visit)) return true;
+            }else return true;
+    
+        }
+        visit[source]=false;
+        return false;
+    
 `
 const stepp=`
 
         STEP 1: change language to java 
         Step 2: 
-        class Solution{
-            static ArrayList<ArrayList<Integer>> transitiveClosure(int N, int graph[][])
-            {
-                // code here
-                // paste here
+        class Solution {
+
+            List<Integer> eventualSafeNodes(int V, List<List<Integer>> adj) {
+                // Your code here
+                //paste here
             }
         }
-        
         
 
 `
@@ -65,7 +66,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  17-oct-2023 9:38 PM</h3>
+        <h3>last modified :  18-oct-2023 9:10 PM</h3>
         
         
         <div>
