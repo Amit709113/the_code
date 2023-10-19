@@ -4,47 +4,51 @@ import React, { useState } from 'react'
 const answer=
 `
 
+Queue<Integer> q = new LinkedList<>();
+      boolean vis[] = new boolean[V];
+      q.add(0);
+      vis[0] = true;
+    
+      int level = 0;
 
-        List<Integer> res=new ArrayList<>();
-      
-        boolean[] visit=new boolean[V];
-        for(int i=0;i<V;i++){
-            if(!isCycle(i,adj,visit)){
-                res.add(i);
+    while (!q.isEmpty()) {
+        int n = q.size();
+        for (int i = 0; i < n; i++) {
+            int a = q.remove();
+            if (a == X)
+                return level;
+
+            for (int j = 0; j < adj.get(a).size(); j++) {
+                int arb = adj.get(a).get(j);
+                if (!vis[arb]) {
+                    vis[arb] = true;
+                    q.add(arb);
+                }
             }
         }
-        return res;
-    }
-    private static boolean isCycle(int source,List<List<Integer>> adj,boolean[] visit){
-       
-        visit[source]=true;
-        
-        for(Integer it:adj.get(source)){
-            if(!visit[it]){
-                if(isCycle(it,adj,visit)) return true;
-            }else return true;
-    
+        level++;
         }
-        visit[source]=false;
-        return false;
+        return -1;
     
 `
 const stepp=`
 
         STEP 1: change language to java 
         Step 2: 
-        class Solution {
-
-            List<Integer> eventualSafeNodes(int V, List<List<Integer>> adj) {
-                // Your code here
-                //paste here
+        class Solution
+        {
+            //Function to find the level of node X.
+            int nodeLevel(int V, ArrayList<ArrayList<Integer>> adj, int X)
+            {
+                // code here
+                //paste  here
             }
         }
         
 
 `
 const copyHandler= ()=>{
-    navigator.clipboard.writeText(answer).then(() => {
+    navigator.clipboard.writeTeXt(answer).then(() => {
         alert(" copied successfully 👍🏽");
       })
       .catch(() => {
@@ -66,7 +70,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  18-oct-2023 9:10 PM</h3>
+        <h3>last modified :  19-oct-2023 9:20 PM</h3>
         
         
         <div>
