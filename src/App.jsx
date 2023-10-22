@@ -3,32 +3,31 @@ import React, { useState } from 'react'
 
 const answer=
 `
-
-Queue<Integer> q = new LinkedList<>();
-      boolean vis[] = new boolean[V];
-      q.add(0);
-      vis[0] = true;
+int mod = 1000000007;
+    long numberOfPaths(int M, int N) {
+        // Code Here
+        int n = M+N-2;
+        int r = M-1<N-1?M-1:N-1;
+        long res = 1;
+        
+        for(int i=1; i<=r; i++){
+            res = (res*(n-r+i)%mod * modInverse(i,mod))%mod;
+        }
+        return res;
+    }
     
-      int level = 0;
-
-    while (!q.isEmpty()) {
-        int n = q.size();
-        for (int i = 0; i < n; i++) {
-            int a = q.remove();
-            if (a == X)
-                return level;
-
-            for (int j = 0; j < adj.get(a).size(); j++) {
-                int arb = adj.get(a).get(j);
-                if (!vis[arb]) {
-                    vis[arb] = true;
-                    q.add(arb);
-                }
-            }
+    long modInverse(int a, int b){
+        int x = 1, y = 0;
+        while(a>1){
+            int q = a/b, temp = b;
+            b = a%b;
+            a = temp;
+            temp = y;
+            y = x-q*y;
+            x = temp;
         }
-        level++;
-        }
-        return -1;
+        return x<0?x+mod:x;
+    }
     
 `
 const stepp=`
@@ -37,13 +36,23 @@ const stepp=`
         Step 2: 
         class Solution
         {
-            //Function to find the level of node X.
-            int nodeLevel(int V, ArrayList<ArrayList<Integer>> adj, int X)
-            {
-                // code here
-                //paste  here
+            long numberOfPaths(int M, int N) {
+                // Code Here
             }
         }
+
+        delete the line
+        
+            long numberOfPaths(int M, int N) {
+                // Code Here
+            }
+        step 3:paste here
+        class Solution
+        {
+            paste here
+        }
+
+
         
 
 `
@@ -70,7 +79,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  19-oct-2023 9:20 PM</h3>
+        <h3>last modified :  22-oct-2023 4:33 PM</h3>
         
         
         <div>
