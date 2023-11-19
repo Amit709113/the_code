@@ -53,7 +53,8 @@ const stepp=`
 
 `
 const copyHandler= ()=>{
-    navigator.clipboard.writeTeXt(answer).then(() => {
+    
+    navigator.clipboard.writeText(answer).then(() => {
         alert(" copied successfully 👍🏽");
       })
       .catch(() => {
