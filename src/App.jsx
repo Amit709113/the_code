@@ -3,57 +3,53 @@ import React, { useState } from 'react'
 
 const answer=
 `
-int mod = 1000000007;
-    long numberOfPaths(int M, int N) {
-        // Code Here
-        int n = M+N-2;
-        int r = M-1<N-1?M-1:N-1;
-        long res = 1;
+
+        Node *head=NULL, *tail=NULL;
+        Node* temp1 = head1;
+        Node* temp2 = head2;
         
-        for(int i=1; i<=r; i++){
-            res = (res*(n-r+i)%mod * modInverse(i,mod))%mod;
+        while(temp1 != NULL && temp2 != NULL)
+        {
+            if((temp1->data) < (temp2->data))
+            {
+                temp1 = temp1->next;
+            }
+            else if((temp1->data) > (temp2->data))
+            {
+                temp2 = temp2->next;
+            }
+            else
+            {
+                if(head == NULL)
+                {
+                    head = tail = new Node(temp1->data);
+                }
+                else
+                {
+                    tail->next = new Node(temp1->data);
+                    tail = tail->next;
+                }
+                temp1 = temp1->next;
+                temp2 = temp2->next;
+            }
         }
-        return res;
-    }
-    
-    long modInverse(int a, int b){
-        int x = 1, y = 0;
-        while(a>1){
-            int q = a/b, temp = b;
-            b = a%b;
-            a = temp;
-            temp = y;
-            y = x-q*y;
-            x = temp;
-        }
-        return x<0?x+mod:x;
-    }
+        
+        return head;
     
 `
 const stepp=`
 
-        STEP 1: change language to java 
+        STEP 1: change language to c++
         Step 2: 
         class Solution
         {
-            long numberOfPaths(int M, int N) {
+            public:
+            Node* findIntersection(Node* head1, Node* head2)
+            {
                 // Code Here
+                Swathi paste here
             }
         }
-
-        delete the line
-        
-            long numberOfPaths(int M, int N) {
-                // Code Here
-            }
-        step 3:paste here
-        class Solution
-        {
-            paste here
-        }
-
-
-        
 
 `
 const copyHandler= ()=>{
@@ -79,7 +75,7 @@ const App = () => {
  return (
     <>
         <h1>Solution of POTD  </h1>
-        <h3>last modified :  22-oct-2023 4:33 PM</h3>
+        <h3>last modified :  19-oct-2023 9:56 PM</h3>
         
         
         <div>
